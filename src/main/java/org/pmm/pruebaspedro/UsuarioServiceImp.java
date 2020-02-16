@@ -15,10 +15,10 @@ public class UsuarioServiceImp implements UsuarioService {
 	public List<Usuario> listar() {
 		return usuarioRepo.findAll();
 	}
-
+/*
 	@Override
-	public Usuario listarId(int id) {	
-		return usuarioRepo.findOne(id);
+	public Usuario listarId(int id_usuario) {	
+		return usuarioRepo.findOne(id_usuario);
 	}
 
 	@Override
@@ -36,5 +36,5 @@ public class UsuarioServiceImp implements UsuarioService {
 		usuarioRepo.delete(u);
 		return u;
 	}
-	
+	*/
 }

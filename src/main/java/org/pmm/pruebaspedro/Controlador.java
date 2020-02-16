@@ -21,10 +21,10 @@ public class Controlador {
 	public List<Usuario> listar(){	
 		return service.listar();
 	}
-	/*
+/*
 	@GetMapping
-	public Usuario lista(int id){	
-		return service.listarId(id);
+	public Usuario lista(int id_usuario){	
+		return service.listarId(id_usuario);
 	}
 	
 	@PostMapping
