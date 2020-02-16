@@ -1,0 +1,13 @@
+package org.pmm.pruebaspedro;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PruebasPedroApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PruebasPedroApplication.class, args);
+	}
+
+}
