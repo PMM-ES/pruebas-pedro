@@ -1,5 +1,6 @@
 package org.pmm.pruebaspedro;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,26 +16,21 @@ public class UsuarioServiceImp implements UsuarioService {
 	public List<Usuario> listar() {
 		return usuarioRepo.findAll();
 	}
-/*
+	
 	@Override
-	public Usuario listarId(int id_usuario) {	
-		return usuarioRepo.findOne(id_usuario);
-	}
-
-	@Override
-	public Usuario agregar(Usuario u) {		
+	public Usuario agregar(Usuario u) {	
+		u.setId_rol(2);
+		u.setFecha_registro(new Date());
 		return usuarioRepo.save(u);
 	}
 
 	@Override
-	public Usuario editar(Usuario u) {		
-		return usuarioRepo.edit(u);
+	public Usuario listarId(int id_usuario) {	
+		return usuarioRepo.getOne(id_usuario);
 	}
 
 	@Override
-	public Usuario borrar(Usuario u) {	
-		usuarioRepo.delete(u);
-		return u;
+	public Usuario editar(Usuario u) {		
+		return usuarioRepo.save(u);
 	}
-	*/
 }
