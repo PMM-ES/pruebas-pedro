@@ -31,7 +31,7 @@ public class Controlador {
 		return service.agregar(u);
 	}
 	
-	@GetMapping(params = "/{id_usuario}")
+	@RequestMapping("/{id_usuario}")
 	public Usuario lista(@PathVariable("id_usuario") int id){	
 		return service.listarId(id);
 	}

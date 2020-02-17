@@ -26,7 +26,7 @@ public class UsuarioServiceImp implements UsuarioService {
 
 	@Override
 	public Usuario listarId(int id_usuario) {	
-		return usuarioRepo.getOne(id_usuario);
+		return usuarioRepo.findById(id_usuario);
 	}
 
 	@Override
