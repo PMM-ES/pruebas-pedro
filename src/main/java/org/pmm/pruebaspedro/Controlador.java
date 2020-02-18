@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins="http://localhost:4200", allowedHeaders = "*", maxAge=3600, methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
+@CrossOrigin(origins="http://localhost:4200", allowedHeaders = "*", maxAge=3600, methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RestController
 @RequestMapping({"/usuarios"})
 public class Controlador {
@@ -40,5 +40,10 @@ public class Controlador {
 	public Usuario editar(@RequestBody Usuario u, @PathVariable("id_usuario") int id){
 		u.setId_usuario(id);
 		return service.editar(u);
+	}
+	
+	@RequestMapping(params = "/{id_usuario}")
+	public Usuario borrar(@PathVariable("id_usuario") int id){
+		return service.delete(id);
 	}
 }

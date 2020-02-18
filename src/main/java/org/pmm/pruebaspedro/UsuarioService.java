@@ -7,4 +7,5 @@ public interface UsuarioService {
 	Usuario agregar(Usuario u);
 	Usuario listarId(int id_usuario);
 	Usuario editar(Usuario u);
+	Usuario delete(int id);
 }
