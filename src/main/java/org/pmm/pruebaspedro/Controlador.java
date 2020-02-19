@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,39 +12,40 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins="http://localhost:4200", allowedHeaders = "*", maxAge=3600, methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "http://localhost:4200", methods = { RequestMethod.GET, RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 @RestController
-@RequestMapping({"/usuarios"})
+@RequestMapping(value = "/usuarios")
 public class Controlador {
-	
+
 	@Autowired
 	UsuarioService service;
-	
+
 	@GetMapping
-	public List<Usuario> listar(){	
+	public List<Usuario> listar() {
 		return service.listar();
 	}
-	
+
 	@PostMapping
-	public Usuario agregar(@RequestBody Usuario u){	
+	public Usuario agregar(@RequestBody Usuario u) {
 		return service.agregar(u);
 	}
-	
-	@RequestMapping("/{id_usuario}")
-	public Usuario lista(@PathVariable("id_usuario") int id){	
+
+	@GetMapping(value = "/{id_usuario}")
+	public Usuario listaId(@PathVariable("id_usuario") int id) {
 		return service.listarId(id);
 	}
-	
-	@PutMapping(params = "/{id_usuario}")
-	public Usuario editar(@RequestBody Usuario u, @PathVariable("id_usuario") int id){
+
+	@PutMapping(value = "/{id_usuario}")
+	public Usuario editar(@RequestBody Usuario u, @PathVariable("id_usuario") int id) {
 		u.setId_usuario(id);
 		return service.editar(u);
 	}
-	
-	@RequestMapping(params = "/{id_usuario}")
-	public Usuario borrar(@PathVariable("id_usuario") int id){
-		return service.delete(id);
+
+	@DeleteMapping(value = "/{id_usuario}")
+	public @ResponseBody void borrar(@PathVariable("id_usuario") int id) {
+		service.delete(id);
 	}
 }
