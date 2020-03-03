@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,9 +24,14 @@ public class Controlador {
 	@Autowired
 	UsuarioService service;
 
-	@GetMapping
+	@GetMapping(value = "/listar")
 	public List<Usuario> listar() {
 		return service.listar();
+	}
+	
+	@GetMapping
+	public Boolean comprobarAlias(@RequestParam("alias") String aliasUsuario) {
+		return service.comprobarAlias(aliasUsuario);
 	}
 
 	@PostMapping
@@ -33,19 +39,19 @@ public class Controlador {
 		return service.agregar(u);
 	}
 
-	@GetMapping(value = "/{id_usuario}")
-	public Usuario listaId(@PathVariable("id_usuario") int id) {
+	@GetMapping(value = "/{idUsuario}")
+	public Usuario listaId(@PathVariable("idUsuario") int id) {
 		return service.listarId(id);
 	}
 
-	@PutMapping(value = "/{id_usuario}")
-	public Usuario editar(@RequestBody Usuario u, @PathVariable("id_usuario") int id) {
-		u.setId_usuario(id);
+	@PutMapping(value = "/{idUsuario}")
+	public Usuario editar(@RequestBody Usuario u, @PathVariable("idUsuario") int id) {
+		u.setIdUsuario(id);
 		return service.editar(u);
 	}
 
-	@DeleteMapping(value = "/{id_usuario}")
-	public @ResponseBody void borrar(@PathVariable("id_usuario") int id) {
+	@DeleteMapping(value = "/{idUsuario}")
+	public @ResponseBody void borrar(@PathVariable("idUsuario") int id) {
 		service.delete(id);
 	}
 }

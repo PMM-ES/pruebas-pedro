@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioServiceImp implements UsuarioService {
+public class UsuarioServiceImpl implements UsuarioService {
 
 	@Autowired
 	private UsuarioRepositorio usuarioRepo;
-
+	
 	@Override
 	public List<Usuario> listar() {
 		return usuarioRepo.findAll();
@@ -19,14 +19,14 @@ public class UsuarioServiceImp implements UsuarioService {
 
 	@Override
 	public Usuario agregar(Usuario u) {
-		u.setId_rol(2);
+		u.setIdRol(2);
 		u.setFecha_registro(new Date());
 		return usuarioRepo.save(u);
 	}
 
 	@Override
-	public Usuario listarId(int id_usuario) {
-		return usuarioRepo.findById(id_usuario);
+	public Usuario listarId(int idUsuario) {
+		return usuarioRepo.findById(idUsuario);
 	}
 
 	@Override
@@ -41,5 +41,10 @@ public class UsuarioServiceImp implements UsuarioService {
 			usuarioRepo.delete(u);
 		}
 		return u;
+	}
+
+	@Override
+	public Boolean comprobarAlias(String aliasUsuario) {
+		return usuarioRepo.findByAliasUsuarioEquals(aliasUsuario).size() > 0 ? true : false;
 	}
 }

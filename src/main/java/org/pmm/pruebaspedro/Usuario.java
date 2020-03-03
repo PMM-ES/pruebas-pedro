@@ -8,10 +8,12 @@ import javax.persistence.*;
 @Table(name="usuarios")
 public class Usuario {
 	
+	public Usuario() {}
+	
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_usuario;
+	private int idUsuario;
 	
 	@Column
 	private String nombre;
@@ -20,23 +22,24 @@ public class Usuario {
 	private String apellidos;
 	
 	@Column
-	private String alias_usuario;
+	private String aliasUsuario;
 	
 	@Column
 	private String password;
 	
 	@Column
-	private int id_rol;
+	//@OneToOne(mappedBy="roles")
+	private int idRol;
 	
 	@Column
 	private Date fecha_registro;
 
-	public int getId_usuario() {
-		return id_usuario;
+	public int getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId_usuario(int id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getNombre() {
@@ -55,12 +58,12 @@ public class Usuario {
 		this.apellidos = apellidos;
 	}
 
-	public String getAlias_usuario() {
-		return alias_usuario;
+	public String getAliasUsuario() {
+		return aliasUsuario;
 	}
 
-	public void setAlias_usuario(String alias_usuario) {
-		this.alias_usuario = alias_usuario;
+	public void setAliasUsuario(String aliasUsuario) {
+		this.aliasUsuario = aliasUsuario;
 	}
 
 	public String getPassword() {
@@ -71,12 +74,12 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public int getId_rol() {
-		return id_rol;
+	public int getIdRol() {
+		return idRol;
 	}
 
-	public void setId_rol(int id_rol) {
-		this.id_rol = id_rol;
+	public void setIdRol(int idRol) {
+		this.idRol = idRol;
 	}
 
 	public Date getFecha_registro() {
