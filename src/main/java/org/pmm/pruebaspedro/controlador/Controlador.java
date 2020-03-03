@@ -1,9 +1,9 @@
-package org.pmm.pruebaspedro.controller;
+package org.pmm.pruebaspedro.controlador;
 
 import java.util.List;
 
-import org.pmm.pruebaspedro.repository.Usuario;
-import org.pmm.pruebaspedro.services.UsuarioService;
+import org.pmm.pruebaspedro.repositorio.Usuario;
+import org.pmm.pruebaspedro.servicio.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;

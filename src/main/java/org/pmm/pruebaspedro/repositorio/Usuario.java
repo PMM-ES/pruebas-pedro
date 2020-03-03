@@ -1,4 +1,4 @@
-package org.pmm.pruebaspedro.repository;
+package org.pmm.pruebaspedro.repositorio;
 
 import java.util.Date;
 

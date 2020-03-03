@@ -1,10 +1,10 @@
-package org.pmm.pruebaspedro.repository;
+package org.pmm.pruebaspedro.repositorio;
 
 import java.util.List;
 
 import org.springframework.data.repository.Repository;
 
-public interface UsuarioRepositorio extends Repository<Usuario, Integer> {
+public interface RolRepositorio extends Repository<Usuario, Integer> {
 	
 	List<Usuario> findAll();
 
