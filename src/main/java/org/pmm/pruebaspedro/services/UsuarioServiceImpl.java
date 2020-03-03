@@ -1,8 +1,10 @@
-package org.pmm.pruebaspedro;
+package org.pmm.pruebaspedro.services;
 
 import java.util.Date;
 import java.util.List;
 
+import org.pmm.pruebaspedro.repository.Usuario;
+import org.pmm.pruebaspedro.repository.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,8 @@
-package org.pmm.pruebaspedro;
+package org.pmm.pruebaspedro.services;
 
 import java.util.List;
+
+import org.pmm.pruebaspedro.repository.Usuario;
 
 public interface UsuarioService {
 	List<Usuario>listar();
