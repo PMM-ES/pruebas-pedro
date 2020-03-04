@@ -12,13 +12,13 @@ public class Rol {
 	public Rol() {}
 	
 	@Id
-	@Column
+	@Column(name="id_rol")
 	private int idRol;
 	
-	@Column
+	@Column(name="nombre")
 	private String nombre;
 	
-	@Column
+	@Column(name="descripcion")
 	private String descripcion;
 	
 	

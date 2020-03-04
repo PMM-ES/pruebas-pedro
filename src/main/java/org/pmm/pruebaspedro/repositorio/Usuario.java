@@ -5,34 +5,35 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name="usuarios")
+@Table(name = "usuarios")
 public class Usuario {
-	
-	public Usuario() {}
-	
+
 	@Id
-	@Column
+	@Column(name = "id_usuario")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUsuario;
-	
-	@Column
+
+	@Column(name = "nombre")
 	private String nombre;
-	
-	@Column
+
+	@Column(name = "apellidos")
 	private String apellidos;
-	
-	@Column
+
+	@Column(name = "alias_usuario")
 	private String aliasUsuario;
-	
-	@Column
+
+	@Column(name = "password")
 	private String password;
 	
-	@Column
-	//@OneToOne(mappedBy="roles")
-	private int idRol;
-	
-	@Column
-	private Date fecha_registro;
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "fecha_registro")
+	private Date fechaRegistro;
+
+	@ManyToOne
+	@JoinColumn(name = "id_rol")
+	private Rol rol;
 
 	public int getIdUsuario() {
 		return idUsuario;
@@ -74,19 +75,27 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public int getIdRol() {
-		return idRol;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setIdRol(int idRol) {
-		this.idRol = idRol;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public Date getFecha_registro() {
-		return fecha_registro;
+	public Date getFechaRegistro() {
+		return fechaRegistro;
 	}
 
-	public void setFecha_registro(Date fecha_registro) {
-		this.fecha_registro = fecha_registro;
+	public void setFechaRegistro(Date fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+
+	public Rol getRol() {
+		return rol;
+	}
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
 	}
 }

@@ -3,6 +3,7 @@ package org.pmm.pruebaspedro.servicio;
 import java.util.Date;
 import java.util.List;
 
+import org.pmm.pruebaspedro.repositorio.RolRepositorio;
 import org.pmm.pruebaspedro.repositorio.Usuario;
 import org.pmm.pruebaspedro.repositorio.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
 	private UsuarioRepositorio usuarioRepo;
 	
+	@Autowired
+	private RolRepositorio rolRepo;
+	
 	@Override
 	public List<Usuario> listar() {
 		return usuarioRepo.findAll();
@@ -21,8 +25,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public Usuario agregar(Usuario u) {
-		u.setIdRol(2);
-		u.setFecha_registro(new Date());
+		u.setRol(rolRepo.findById(2));
+		u.setFechaRegistro(new Date());
 		return usuarioRepo.save(u);
 	}
 

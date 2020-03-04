@@ -4,16 +4,14 @@ import java.util.List;
 
 import org.springframework.data.repository.Repository;
 
-public interface RolRepositorio extends Repository<Usuario, Integer> {
+public interface RolRepositorio extends Repository<Rol, Integer> {
 	
-	List<Usuario> findAll();
+	List<Rol> findAll();
 
-	Usuario save(Usuario u);
+	Rol save(Rol r);
 
-	Usuario findById(int idUsuario);
+	Rol findById(int idRol);
 
-	void delete(Usuario u);
+	void delete(Rol r);
 	
-	//@Query("SELECT t FROM Usuario t WHERE t.alias_usuario = ?1")
-	List<Usuario> findByAliasUsuarioEquals(String aliasUsuario);
 }
